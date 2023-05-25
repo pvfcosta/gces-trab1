@@ -30,6 +30,9 @@ jobs:
       - name: Build package
         run: poetry build
 
+      - name: Lock Update
+        run: poetry lock --no-update
+
       - name: Install Sphinx
         run: poetry install --no-root --no-dev -E docs
 

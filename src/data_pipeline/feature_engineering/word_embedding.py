@@ -1,6 +1,5 @@
-from whatlies.language import BytePairLanguage
 import numpy as np
-
+from whatlies.language import BytePairLanguage
 class WordEmbedding:
     def __init__(self, lang, dimensions):
         """Initialize a word embedding object using the BytePairLanguage model.

@@ -55,9 +55,12 @@ tqdm = "4.64.1"
 urllib3 = "1.26.13"
 whatlies = "0.7.0"
 zipp = "3.11.0"
+Sphinx = { version = "4.2.0", optional = true }
+sphinx-rtd-theme = { version = "1.0.0", optional = true }
+sphinxcontrib-napoleon = { version = "0.7", optional = true }
 
 [tool.poetry.extras]
-Extras = ["docs"]
+docs = ["Sphinx", "sphinx-rtd-theme", "sphinxcontrib-napoleon"]
 
 
 [build-system]

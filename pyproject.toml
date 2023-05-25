@@ -56,6 +56,9 @@ urllib3 = "1.26.13"
 whatlies = "0.7.0"
 zipp = "3.11.0"
 
+[tool.poetry.extras]
+Extras = ["docs"]
+
 
 [build-system]
 requires = ["poetry-core"]

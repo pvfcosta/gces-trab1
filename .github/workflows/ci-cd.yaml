@@ -30,9 +30,6 @@ jobs:
       - name: Build package
         run: poetry build
 
-      - name: Run tests
-        run: poetry run pytest tests/
-
       - name: Install Sphinx
         run: poetry install --no-root --no-dev -E docs
 

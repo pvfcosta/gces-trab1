@@ -1,0 +1,46 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="$HOME/.poetry/bin:$PATH"
+          poetry config virtualenvs.create false
+
+      - name: Install dependencies
+        run: poetry install --no-dev
+
+      - name: Build package
+        run: poetry build
+
+      - name: Run tests
+        run: poetry run pytest tests/
+
+      - name: Install Sphinx
+        run: poetry install --no-root --no-dev -E docs
+
+      - name: Build documentation
+        run: poetry run sphinx-build -b html -W docs/source docs/build
+
+      - name: Configure PyPI deployment
+        run: poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+
+      - name: Publish to PyPI
+        run: poetry publish --no-interaction

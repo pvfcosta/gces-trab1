@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "gces-trab1"
-version = "0.1.0"
-description = ""
+version = "1.0.0"
+description = "Biblioteca do trabalho prático de GCES PUC Minas"
 authors = ["pvfcosta <pedrovfc11@gmail.com>"]
 readme = "README.md"
 packages = [{include = "src"}]
